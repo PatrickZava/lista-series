@@ -38,8 +38,8 @@
 
           <div class="translate-options">
             <p>Translate summary: </p>
-            <img [ngClass]="currentLanguage === 'en' ? 'img-disabled' : 'img-enabled'" src="assets/united.svg" width="20px" height="15px" (click)="translate()"/>
-            <img [ngClass]="currentLanguage === 'pt-br' ? 'img-disabled' : 'img-enabled'" src="assets/brazil.svg" width="20px" height="15px" (click)="translate()"/>
+            <img title="English" [ngClass]="currentLanguage === 'en' ? 'img-disabled' : 'img-enabled'" src="assets/united.svg" width="20px" height="15px" (click)="translate()"/>
+            <img title="Portuguese" [ngClass]="currentLanguage === 'pt-br' ? 'img-disabled' : 'img-enabled'" src="assets/brazil.svg" width="20px" height="15px" (click)="translate()"/>
           </div>
 
           <div style="padding: 5px; line-height: 25px; text-align: justify;" [innerHTML]="infoShow.summary"></div>
