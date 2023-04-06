@@ -47,7 +47,7 @@ export class CardDetailsComponent implements OnInit {
 
     this.apiTranslate.translate(textToTranslate).subscribe({
       next: (res: any) => {
-        this.infoShow.summary = res.responseData.translatedText;
+        this.infoShow.summary = res.responseData.translatedText + '...';
         this.errorTranslate = '';
       },
       error: (error: any) => {
