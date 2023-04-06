@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  background-color: #fafafa;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-paginator {
+  background-color: #fafafa;
+}
+
+.content {
+  padding: 5px 10px;
+}
+
+
+

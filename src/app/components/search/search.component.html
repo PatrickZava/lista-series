@@ -1,0 +1,17 @@
+<mat-form-field [style.width.px]=350 appearance="outline" >
+  <mat-icon matPrefix class="icon"> search </mat-icon>
+
+  <mat-label>Buscar série</mat-label>
+  <input
+    matInput
+    [placeholder]="randomPlaceholder"
+    [value]="searchedTerm"
+    (focus)="getRandomPlaceholder()"
+    (keyup.enter)="getSearchedShow($event)"
+  >
+
+  <button *ngIf="searchedTerm" matSuffix mat-icon-button (click)="getSearchedShow('')" >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+

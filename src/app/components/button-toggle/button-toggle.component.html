@@ -1,0 +1,11 @@
+<mat-button-toggle-group
+  style="margin-left: 15px; margin-right: 15px;"
+  [disabled]="isDisabled"
+  (change)="setToggleValue(statusToggle.value)"
+  #statusToggle="matButtonToggleGroup"
+  [value]="getToggleValue()"
+>
+  <mat-button-toggle value="Running">Running</mat-button-toggle>
+  <mat-button-toggle value="Ended">Ended</mat-button-toggle>
+  <mat-button-toggle value="All">All</mat-button-toggle>
+</mat-button-toggle-group>

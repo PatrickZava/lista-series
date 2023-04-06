@@ -1,0 +1,21 @@
+<div style="background-color: #fafafa; height: 100%; ">
+<header>
+  <app-search style="padding-top: 23px; margin-right: 15px;" [infos]="infos" (findedShows)="setFindedShows($event)"/>
+  <app-button-toggle [isDisabled]="isDisabled" (statusToggle)="setStatusToggle($event)" [isResetingToggle]="isResetingToggle"/>
+  <mat-paginator
+    [disabled]="isDisabled"
+    [length]="sizePaginator"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[8, 12, 24, 36, 48]"
+    aria-label="Selecionar página"
+    (page)="handlePage($event)"
+  />
+</header>
+
+<body style="height: 700px; padding-top: 40px;">
+  <div class="content" *ngFor="let info of showedInfos">
+    <app-card [info]="info"/>
+  </div>
+</body>
+
+</div>

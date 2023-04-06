@@ -1,0 +1,53 @@
+
+<mat-spinner *ngIf="isLoading"/>
+
+<mat-card class="card" *ngIf="!isLoading">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{infoShow.name}}</mat-card-title>
+      <mat-card-subtitle>{{infoShow.premiered | date:'yyyy'}} - {{infoShow.ended ? (infoShow.ended | date:'yyyy') : year }}</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+
+  <mat-card-content class="card-content">
+      <div style="display: flex; flex-direction: column; justify-content: flex-start;">
+        <img class="image" [src]="infoShow.image.original">
+
+        <div class="buttons-div" style="padding-top: 15px">
+          <a mat-raised-button color="primary" routerLink="/">
+            <mat-icon>arrow_left</mat-icon>
+            Voltar
+          </a>
+        </div>
+     </div>
+
+      <div class='serie-info'>
+        <div>
+          <p>Language: {{infoShow.language}} </p>
+          <p>Rating: {{infoShow.rating.average}}</p>
+          <p>Avg. Runtime: {{infoShow.averageRuntime}} min</p>
+          <p>Genres: {{infoShow.genres | genre}}</p>
+          <p *ngIf="infoShow.network">Network: {{ infoShow.network.name}}</p>
+
+          <div class="card-status">
+            <p>Status:</p>
+            <p  [ngStyle]="{color: (infoShow.status === 'Ended') ? 'red' : (infoShow.status === 'Running') ? 'green' : 'blue' }">{{infoShow.status}}</p>
+          </div>
+
+          <hr>
+
+          <div class="translate-options">
+            <p>Translate summary: </p>
+            <img [ngClass]="currentLanguage === 'en' ? 'img-disabled' : 'img-enabled'" src="/assets/united.svg" width="20px" height="15px" (click)="translate()"/>
+            <img [ngClass]="currentLanguage === 'pt-br' ? 'img-disabled' : 'img-enabled'" src="/assets/brazil.svg" width="20px" height="15px" (click)="translate()"/>
+          </div>
+
+          <div style="padding: 5px; line-height: 25px; text-align: justify;" [innerHTML]="infoShow.summary"></div>
+
+          <p class='error-message'*ngIf="errorTranslate !== ''">{{errorTranslate}}</p>
+        </div>
+      </div>
+  </mat-card-content>
+
+</mat-card>
+

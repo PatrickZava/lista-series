@@ -1,0 +1,36 @@
+
+  <mat-card class="card" *ngIf="info.premiered" >
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{info.name}} </mat-card-title>
+        <mat-card-subtitle>{{info.premiered | date:'yyyy'}} - {{info.ended ? (info.ended | date:'yyyy') : year }}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+
+    <mat-card-content class="card-content">
+        <img class="image" [src]="info.image.medium">
+        <div class='serie-info'>
+          <div>
+            <p>Language: {{info.language}} </p>
+            <p>Rating: {{info.rating.average}}</p>
+            <p>Avg. Runtime: {{info.averageRuntime}} min</p>
+            <p>Genres: {{info.genres | genre}}</p>
+            <p *ngIf="info.network">Network: {{ info.network.name}}</p>
+
+            <div class="card-status">
+              <p>Status:</p>
+              <p  [ngStyle]="{color: (info.status === 'Ended') ? 'red' : (info.status === 'Running') ? 'green' : 'blue' }">{{info.status}}</p>
+            </div>
+          </div>
+
+          <div class="buttons-div">
+            <a mat-stroked-button [href]="info.url" target="_blank" style="flex:1; margin-right: 15px;" >
+              <mat-icon style="margin:0px; padding:0px;">home</mat-icon>
+            </a>
+            <a mat-stroked-button [routerLink]="['/details', info.id]" style="flex:2">More</a>
+          </div>
+
+        </div>
+    </mat-card-content>
+  </mat-card>
+
